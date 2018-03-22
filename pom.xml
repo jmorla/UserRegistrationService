@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.jmorla</groupId>
-	<artifactId>UserRegistrationService</artifactId>
+	<artifactId>GallerinWebServices</artifactId>
 	<version>1</version>
 	<packaging>jar</packaging>
 
-	<name>UserRegistrationService</name>
+	<name>GallerinWebServices</name>
 	<description>application</description>
 
 	<parent>

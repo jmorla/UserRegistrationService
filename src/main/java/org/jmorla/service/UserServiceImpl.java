@@ -4,12 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-import org.jmorla.common.exception.ResourceNotFoundException;
+import org.jmorla.common.exception.DuplicateResourceException;
 import org.jmorla.domain.User;
 import org.jmorla.repository.UserRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -26,7 +25,7 @@ public class UserServiceImpl implements UserService {
 		
 		Optional<User> user = userRepository.findByUsername(u.getFirstname());
 		if(user.isPresent()) {
-			//should throw an exception 
+			throw new DuplicateResourceException("this resource already exist");
 		}
 		return userRepository.save(u);
 	}
@@ -44,6 +43,8 @@ public class UserServiceImpl implements UserService {
 			
 			userRepository.save(e);
 		});	
+		
+		u.setId(id);
 		
 		return u;
 	}

@@ -75,7 +75,7 @@ public class UserRegistrationController {
 		return new ResponseEntity<User>(user, HttpStatus.CREATED);
 	}
 	
-	@PutMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@PutMapping(value="/{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<User> updateUser(@RequestBody @Valid final User user,@PathVariable("id") Long id){
 		userService.updateUser(id,user);
 		return new ResponseEntity<User>(user, HttpStatus.OK);

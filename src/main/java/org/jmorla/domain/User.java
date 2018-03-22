@@ -10,9 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
-
 import org.hibernate.validator.constraints.Length;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 /**
  * @author jmorla
@@ -60,6 +61,7 @@ public class User implements Serializable {
 
 	@NotEmpty
 	@Column(name = "PASSWORD")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
 
 	public Long getId() {
