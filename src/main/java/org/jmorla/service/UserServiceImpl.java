@@ -23,17 +23,24 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public User saveUser(User u) {
+		
+		Optional<User> user = userRepository.findByUsername(u.getFirstname());
+		if(user.isPresent()) {
+			//should throw an exception 
+		}
 		return userRepository.save(u);
 	}
 
 	@Override
-	public User updateUser(final User u) {
-		Optional<User> currentUser = userRepository.findById(u.getId());
+	public User updateUser(Long id, final User u) {
+		Optional<User> currentUser = userRepository.findById(id);
 		
 		currentUser.ifPresent(e->{
-			e.setName(u.getName());
+			e.setUsername(u.getUsername());
 			e.setEmail(u.getEmail());
 			e.setAddress(u.getAddress());
+			e.setFirstname(u.getFirstname());
+			e.setLastname(u.getLastname());
 			
 			userRepository.save(e);
 		});	
@@ -55,7 +62,7 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public Optional<User> findUserByName(String name) {
-		Optional<User> user = userRepository.findByName(name);
+		Optional<User> user = userRepository.findByUsername(name);
 		
 		return user;
 	}

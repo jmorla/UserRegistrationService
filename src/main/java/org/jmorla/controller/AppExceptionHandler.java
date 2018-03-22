@@ -1,4 +1,4 @@
-package org.jmorla.controller.errorhandler;
+package org.jmorla.controller;
 
 import java.util.Date;
 import java.util.List;

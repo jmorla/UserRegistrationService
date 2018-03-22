@@ -1,2 +1,0 @@
-INSERT INTO USERS (USER_ID,NAME,ADDRESS,EMAIL) VALUES (1,'Jorge L. Morla','C/ bonaire 248 alma rosa I', 'jorgemorlapro@gmail.com'),
-													  (2,'Lewis Rodriguez','C/Palpinas 70 alma rosa II', 'lewis.rodriguez@gmail.com');

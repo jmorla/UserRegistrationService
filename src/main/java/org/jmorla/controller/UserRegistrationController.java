@@ -13,6 +13,7 @@ import org.jmorla.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,9 +29,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserRegistrationController {
 
 	private UserService userService;
-
-	public UserRegistrationController(UserService userService) {
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	
+	public UserRegistrationController(UserService userService, BCryptPasswordEncoder bCryptPasswordEncoder) {
 		this.userService = userService;
+		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
 
 	@GetMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE, params = { "page", "size" })
@@ -67,13 +70,14 @@ public class UserRegistrationController {
 
 	@PostMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<User> createUser(@RequestBody @Valid final User user) {
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		userService.saveUser(user);
 		return new ResponseEntity<User>(user, HttpStatus.CREATED);
 	}
 	
 	@PutMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<User> updateUser(@RequestBody @Valid final User user){
-		userService.updateUser(user);
+	public ResponseEntity<User> updateUser(@RequestBody @Valid final User user,@PathVariable("id") Long id){
+		userService.updateUser(id,user);
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 	
