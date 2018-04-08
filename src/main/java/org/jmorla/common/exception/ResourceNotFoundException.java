@@ -2,6 +2,10 @@ package org.jmorla.common.exception;
 
 public class ResourceNotFoundException extends RuntimeException {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String classname;
 	private String params;
 	

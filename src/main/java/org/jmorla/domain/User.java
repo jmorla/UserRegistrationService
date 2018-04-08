@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
-
 import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -69,6 +67,13 @@ public class User implements Serializable {
 	@Column(name = "ABOUT_ME")
 	private String aboutMe;
 
+<<<<<<< HEAD
+=======
+	@NotEmpty
+	@Column(name = "PASSWORD")
+	@JsonProperty(access = Access.WRITE_ONLY)
+	private String password;
+>>>>>>> 72852881dd091947c05edf1cf25d1a3f54b85c7b
 
 	public Long getId() {
 		return id;
