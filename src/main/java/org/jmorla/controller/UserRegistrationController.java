@@ -10,6 +10,7 @@ import org.jmorla.common.exception.ResourceNotFoundException;
 import org.jmorla.domain.User;
 import org.jmorla.service.UserService;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 @RestController
 @RequestMapping("/users")
@@ -52,6 +54,19 @@ public class UserRegistrationController {
 		Optional<User> user = userService.findUserById(id);
 		user.orElseThrow(()->{
 			return new ResourceNotFoundException("User", "[ id ]");
+		});
+		
+		return new ResponseEntity<User>(user.get(), HttpStatus.OK);
+
+	}
+	
+	@GetMapping(value = "/me", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<User> getLogedUser() {
+		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		Optional<User> user = userService.findUserByName(authentication.getName());
+		user.orElseThrow(()->{
+			return new ResourceNotFoundException("User", "[ name ]");
 		});
 		
 		return new ResponseEntity<User>(user.get(), HttpStatus.OK);

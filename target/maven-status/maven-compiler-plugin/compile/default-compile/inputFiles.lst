@@ -1,0 +1,16 @@
+/home/jmorla/Projects/JavaProjects/GallerinService/src/main/java/org/jmorla/UserRegistrationServiceApplication.java
+/home/jmorla/Projects/JavaProjects/GallerinService/src/main/java/org/jmorla/service/UserDetailsServiceImpl.java
+/home/jmorla/Projects/JavaProjects/GallerinService/src/main/java/org/jmorla/controller/UserRegistrationController.java
+/home/jmorla/Projects/JavaProjects/GallerinService/src/main/java/org/jmorla/controller/AppExceptionHandler.java
+/home/jmorla/Projects/JavaProjects/GallerinService/src/main/java/org/jmorla/security/WebSecurity.java
+/home/jmorla/Projects/JavaProjects/GallerinService/src/main/java/org/jmorla/common/pojo/FieldValidationError.java
+/home/jmorla/Projects/JavaProjects/GallerinService/src/main/java/org/jmorla/service/UserService.java
+/home/jmorla/Projects/JavaProjects/GallerinService/src/main/java/org/jmorla/common/pojo/ErrorDescriptor.java
+/home/jmorla/Projects/JavaProjects/GallerinService/src/main/java/org/jmorla/common/pojo/MessageType.java
+/home/jmorla/Projects/JavaProjects/GallerinService/src/main/java/org/jmorla/domain/User.java
+/home/jmorla/Projects/JavaProjects/GallerinService/src/main/java/org/jmorla/security/JWTAuthenticationFilter.java
+/home/jmorla/Projects/JavaProjects/GallerinService/src/main/java/org/jmorla/security/JWTAuthorizationFilter.java
+/home/jmorla/Projects/JavaProjects/GallerinService/src/main/java/org/jmorla/repository/UserRepository.java
+/home/jmorla/Projects/JavaProjects/GallerinService/src/main/java/org/jmorla/security/SecurityConstants.java
+/home/jmorla/Projects/JavaProjects/GallerinService/src/main/java/org/jmorla/service/UserServiceImpl.java
+/home/jmorla/Projects/JavaProjects/GallerinService/src/main/java/org/jmorla/common/exception/ResourceNotFoundException.java

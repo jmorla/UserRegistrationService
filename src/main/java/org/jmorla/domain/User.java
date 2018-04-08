@@ -14,6 +14,9 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 /**
  * @author jmorla
  *
@@ -22,36 +25,12 @@ import org.hibernate.validator.constraints.Length;
 @Table(name = "USERS")
 public class User implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "USER_ID")
 	private Long id;
-
-	@Column(name = "FIRST_NAME")
-	@Length(min = 3, max = 30)
-	@NotEmpty
-	private String firstname;
-
-	@Column(name = "LAST_NAME")
-	@Length(min = 3, max = 30)
-	@NotEmpty
-	private String lastname;
-
-	@Column(name = "ADDRESS")
-	@Length(min = 5, max = 255)
-	@NotEmpty
-	private String address;
-
-	@Email
-	@Column(name = "EMAIL")
-	@Length(min = 5, max = 100)
-	@NotEmpty
-	private String email;
 
 	@NotEmpty
 	@Column(name = "USERNAME")
@@ -60,7 +39,36 @@ public class User implements Serializable {
 
 	@NotEmpty
 	@Column(name = "PASSWORD")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
+	
+	@Email
+	@Column(name = "EMAIL")
+	@Length(min = 5, max = 100)
+	@NotEmpty
+	private String email;
+
+	@Column(name = "FIRST_NAME")
+	private String firstname;
+
+	@Column(name = "LAST_NAME")
+	private String lastname;
+
+	@Column(name = "ADDRESS")
+	private String address;
+	
+	@Column(name = "CITY")
+	private String city;
+	
+	@Column(name = "COUNTRY")
+	private String country;
+	
+	@Column(name = "POSTAL_CODE")
+	private Integer postalCode;
+	
+	@Column(name = "ABOUT_ME")
+	private String aboutMe;
+
 
 	public Long getId() {
 		return id;
@@ -116,5 +124,38 @@ public class User implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}	
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public Integer getPostalCode() {
+		return postalCode;
+	}
+
+	public void setPostalCode(Integer postalCode) {
+		this.postalCode = postalCode;
+	}
+
+	public String getAboutMe() {
+		return aboutMe;
+	}
+
+	public void setAboutMe(String aboutMe) {
+		this.aboutMe = aboutMe;
+	}
+	
 }

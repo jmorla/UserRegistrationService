@@ -1,0 +1,16 @@
+org/jmorla/service/UserServiceImpl.class
+org/jmorla/common/pojo/ErrorDescriptor.class
+org/jmorla/common/pojo/FieldValidationError.class
+org/jmorla/common/pojo/MessageType.class
+org/jmorla/security/WebSecurity.class
+org/jmorla/common/exception/ResourceNotFoundException.class
+org/jmorla/UserRegistrationServiceApplication.class
+org/jmorla/controller/UserRegistrationController.class
+org/jmorla/repository/UserRepository.class
+org/jmorla/domain/User.class
+org/jmorla/security/JWTAuthorizationFilter.class
+org/jmorla/security/JWTAuthenticationFilter.class
+org/jmorla/service/UserDetailsServiceImpl.class
+org/jmorla/controller/AppExceptionHandler.class
+org/jmorla/service/UserService.class
+org/jmorla/security/SecurityConstants.class
