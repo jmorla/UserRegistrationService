@@ -4,11 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.jmorla</groupId>
-<<<<<<< HEAD
-	<artifactId>GallerinService</artifactId>
-=======
-	<artifactId>GallerinWebServices</artifactId>
->>>>>>> 72852881dd091947c05edf1cf25d1a3f54b85c7b
+	<artifactId>GallerinWebService</artifactId>
 	<version>1</version>
 	<packaging>jar</packaging>
 
@@ -19,7 +15,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.0.0.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath />
 	</parent>
 
 	<properties>
@@ -61,9 +57,7 @@
 			<artifactId>jjwt</artifactId>
 			<version>0.7.0</version>
 		</dependency>
-
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -72,6 +66,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-
 </project>

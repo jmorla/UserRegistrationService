@@ -1,5 +1,7 @@
 #!/usr/bin/env groovy
 node{
+	checkout csm
+
 	stage('Build'){
 		echo "build"
 	}
