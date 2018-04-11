@@ -67,13 +67,10 @@ public class User implements Serializable {
 	@Column(name = "ABOUT_ME")
 	private String aboutMe;
 
-<<<<<<< HEAD
-=======
 	@NotEmpty
 	@Column(name = "PASSWORD")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
->>>>>>> 72852881dd091947c05edf1cf25d1a3f54b85c7b
 
 	public Long getId() {
 		return id;
