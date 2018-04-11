@@ -6,7 +6,7 @@ node{
 	}
 	stage('Build'){
 		echo "build"
-		sh 'mvn clean package -DskipTests=true -U'
+		sh 'mvn clean install -DskipTests=true '
 	}
 	stage('Test'){
 		echo "test"
