@@ -67,11 +67,6 @@ public class User implements Serializable {
 	@Column(name = "ABOUT_ME")
 	private String aboutMe;
 
-	@NotEmpty
-	@Column(name = "PASSWORD")
-	@JsonProperty(access = Access.WRITE_ONLY)
-	private String password;
-
 	public Long getId() {
 		return id;
 	}
