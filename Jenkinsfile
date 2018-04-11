@@ -2,6 +2,8 @@
 node{
 	stage('SCM'){
 		checkout scm
+		branchName = env.BRANCH_NAME
+		echo '$branchName'
 	}
 	stage('Build'){
 		echo "build"
