@@ -13,7 +13,6 @@ node{
 		sh 'mvn test'
 	}
 	stage('Deploy'){
-		echo "deploy"
-		sh 'mvn spring-boot:run'
+		echo "Can be deployed"
 	}
 }
