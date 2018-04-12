@@ -1,1 +1,1 @@
-# UserRegistrationService
+# com.gallerin.service.rest
