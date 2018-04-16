@@ -1,8 +1,8 @@
-package org.jmorla.repository;
+package org.gallerin.repository;
 
 import java.util.Optional;
 
-import org.jmorla.domain.User;
+import org.gallerin.domain.User;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 

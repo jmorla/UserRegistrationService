@@ -1,4 +1,4 @@
-package org.jmorla.domain;
+package org.gallerin.domain;
 
 import java.io.Serializable;
 import java.util.HashSet;

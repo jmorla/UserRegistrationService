@@ -1,6 +1,6 @@
-package org.jmorla.service;
+package org.gallerin.service;
 
-import org.jmorla.repository.UserRepository;
+import org.gallerin.repository.UserRepository;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -21,7 +21,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<org.jmorla.domain.User> applicationUser = userRepository.findByUsername(username);
+        Optional<org.gallerin.domain.User> applicationUser = userRepository.findByUsername(username);
         
         if(!applicationUser.isPresent()){
         	throw new UsernameNotFoundException(username);

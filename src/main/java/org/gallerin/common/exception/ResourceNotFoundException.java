@@ -1,4 +1,4 @@
-package org.jmorla.common.exception;
+package org.gallerin.common.exception;
 
 public class ResourceNotFoundException extends RuntimeException {
 	

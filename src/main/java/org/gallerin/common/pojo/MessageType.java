@@ -1,4 +1,4 @@
-package org.jmorla.common.pojo;
+package org.gallerin.common.pojo;
 
 public enum MessageType {
 	SUCCESS, INFO, WARNING, ERROR

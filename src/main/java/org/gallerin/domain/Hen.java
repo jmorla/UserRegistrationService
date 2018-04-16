@@ -1,3 +1,3 @@
-package org.jmorla.domain;
+package org.gallerin.domain;
 
 public class Hen extends Bird {}

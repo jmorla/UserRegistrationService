@@ -1,9 +1,9 @@
-package org.jmorla.service;
+package org.gallerin.service;
 
 import java.util.Map;
 import java.util.Optional;
 
-import org.jmorla.domain.User;
+import org.gallerin.domain.User;
 
 public interface UserService {
 

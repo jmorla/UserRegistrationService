@@ -1,4 +1,4 @@
-package org.jmorla.common.pojo;
+package org.gallerin.common.pojo;
 
 import java.util.ArrayList;
 import java.util.Date;

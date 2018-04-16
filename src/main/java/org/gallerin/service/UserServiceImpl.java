@@ -1,12 +1,12 @@
-package org.jmorla.service;
+package org.gallerin.service;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-import org.jmorla.common.exception.DuplicateResourceException;
-import org.jmorla.domain.User;
-import org.jmorla.repository.UserRepository;
+import org.gallerin.common.exception.DuplicateResourceException;
+import org.gallerin.domain.User;
+import org.gallerin.repository.UserRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;

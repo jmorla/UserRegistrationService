@@ -1,4 +1,4 @@
-package org.jmorla.controller;
+package org.gallerin.controller;
 
 import java.util.List;
 import java.util.Map;
@@ -6,10 +6,9 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
-import org.jmorla.common.exception.ResourceNotFoundException;
-import org.jmorla.domain.User;
-import org.jmorla.service.UserService;
-
+import org.gallerin.common.exception.ResourceNotFoundException;
+import org.gallerin.domain.User;
+import org.gallerin.service.UserService;
 import org.springframework.security.core.Authentication;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

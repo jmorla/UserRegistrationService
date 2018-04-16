@@ -1,4 +1,4 @@
-package org.jmorla.controller;
+package org.gallerin.controller;
 
 import java.util.Date;
 import java.util.List;
@@ -6,10 +6,10 @@ import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.jmorla.common.pojo.FieldValidationError;
-import org.jmorla.common.pojo.MessageType;
-import org.jmorla.common.exception.ResourceNotFoundException;
-import org.jmorla.common.pojo.ErrorDescriptor;
+import org.gallerin.common.exception.ResourceNotFoundException;
+import org.gallerin.common.pojo.ErrorDescriptor;
+import org.gallerin.common.pojo.FieldValidationError;
+import org.gallerin.common.pojo.MessageType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;

@@ -1,4 +1,4 @@
-package org.jmorla.security;
+package org.gallerin.security;
 
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -11,9 +11,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.context.annotation.Bean;
 
-import static org.jmorla.security.SecurityConstants.*;
+import static org.gallerin.security.SecurityConstants.*;
+
+import org.springframework.context.annotation.Bean;
 
 @EnableWebSecurity
 public class WebSecurity extends WebSecurityConfigurerAdapter {

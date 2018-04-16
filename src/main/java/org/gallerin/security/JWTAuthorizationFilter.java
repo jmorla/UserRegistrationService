@@ -1,4 +1,4 @@
-package org.jmorla.security;
+package org.gallerin.security;
 
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -10,10 +10,11 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import static org.gallerin.security.SecurityConstants.*;
+
 import java.io.IOException;
 import java.util.ArrayList;
-
-import static org.jmorla.security.SecurityConstants.*;
 
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 

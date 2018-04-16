@@ -1,4 +1,4 @@
-package org.jmorla.security;
+package org.gallerin.security;
 
 public class SecurityConstants {
     public static final String SECRET = "OGE2NzJjN2VkZGZkYzMwY2U4MmIzNDI0MjgyMWUzY2E";

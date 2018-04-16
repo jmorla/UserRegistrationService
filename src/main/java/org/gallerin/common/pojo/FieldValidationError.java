@@ -1,4 +1,4 @@
-package org.jmorla.common.pojo;
+package org.gallerin.common.pojo;
 
 public class FieldValidationError {
 
