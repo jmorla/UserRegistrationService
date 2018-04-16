@@ -2,4 +2,10 @@ server:
   port: 8585
   servlet:
     context-path: /api/v1/gallerin/
-
+    
+spring:
+  data:
+    neo4j:
+      uri: bolt://localhost
+      username: neo4j
+      password: admin

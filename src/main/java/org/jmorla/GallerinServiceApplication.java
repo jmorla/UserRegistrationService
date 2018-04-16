@@ -2,14 +2,16 @@ package org.jmorla;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
-public class UserRegistrationServiceApplication {
+@EntityScan("org.jmorla.domain")
+public class GallerinServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UserRegistrationServiceApplication.class, args);
+		SpringApplication.run(GallerinServiceApplication.class, args);
 	}
 	
 	 @Bean

@@ -1,16 +1,14 @@
 package org.jmorla.domain;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
+import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Relationship;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -19,53 +17,46 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
  * @author jmorla
  *
  */
-@Entity
-@Table(name = "USERS")
+@NodeEntity
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "USER_ID")
 	private Long id;
 
 	@NotEmpty
-	@Column(name = "USERNAME")
 	@Length(min = 3, max = 10)
 	private String username;
 
 	@NotEmpty
-	@Column(name = "PASSWORD")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
 	
 	@Email
-	@Column(name = "EMAIL")
 	@Length(min = 5, max = 100)
 	@NotEmpty
 	private String email;
 
-	@Column(name = "FIRST_NAME")
 	private String firstname;
 
-	@Column(name = "LAST_NAME")
 	private String lastname;
 
-	@Column(name = "ADDRESS")
 	private String address;
 	
-	@Column(name = "CITY")
 	private String city;
 	
-	@Column(name = "COUNTRY")
 	private String country;
 	
-	@Column(name = "POSTAL_CODE")
 	private Integer postalCode;
 	
-	@Column(name = "ABOUT_ME")
 	private String aboutMe;
+	
+	@Relationship(type = "OWNER", direction = Relationship.INCOMING)
+	private Set<Bird> birds;
+	
+	public User() {
+		this.birds = new HashSet<>();
+	}
 
 	public Long getId() {
 		return id;
@@ -153,6 +144,14 @@ public class User implements Serializable {
 
 	public void setAboutMe(String aboutMe) {
 		this.aboutMe = aboutMe;
+	}
+
+	protected Set<Bird> getBirds() {
+		return birds;
+	}
+
+	protected void setBirds(Set<Bird> birds) {
+		this.birds = birds;
 	}
 	
 }
