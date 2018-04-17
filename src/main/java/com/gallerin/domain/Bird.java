@@ -2,6 +2,9 @@ package com.gallerin.domain;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
@@ -10,18 +13,34 @@ import org.neo4j.ogm.annotation.Relationship;
 public abstract class Bird {
 	
 	@Id
-	private Long 	id;
+	private Long 	id;	
+	@NotEmpty
+	@NotNull
 	private String	birdId;
 	private Date 	birth;
 	private String  alias;
+	@NotNull
+	@NotEmpty
 	private Integer plate;
+	@NotNull
+	@NotEmpty
 	private String  scrath;
 	private Date 	died;
+	@NotNull
+	@NotEmpty
 	private String  status;
+	@NotNull
+	@NotEmpty
 	private String  enrace;
 	private String 	comment;
+	@NotNull
+	@NotEmpty
 	private String 	color;
+	@NotNull
+	@NotEmpty
 	private String 	crest;
+	@NotNull
+	@NotEmpty
 	private String  plateType;
 	private String 	fatherId;
 	private String 	motherId;
