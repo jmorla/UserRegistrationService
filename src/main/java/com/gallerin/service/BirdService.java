@@ -1,16 +1,28 @@
 package com.gallerin.service;
 
 import java.util.Map;
+import java.util.Optional;
 
-import com.gallerin.domain.Bird;
+import com.gallerin.domain.Hen;
+import com.gallerin.domain.Rooster;
 
 public interface BirdService {
 
-	Map<String, Object> findBirdByOwnerName(String owerName, int page, int size);
+	Map<String, Object> findBirdByOwner(int page, int size);
 	
-	Bird addBird(Bird bird);
+	Rooster addRooster(Rooster r);
 	
-	Bird updateBird(Bird bird);
+	Rooster updateRooster(Rooster r, String roosterId);
 	
-	Bird removeBird(Bird bird);
+	Rooster deleteRooster(String roosterId);
+	
+	Hen addHen(Hen h);
+	
+	Hen updateHen(Hen h, String henId);
+	
+	Hen deleteHen(String henId);
+	
+	Map<String, Integer> last12BirthsOfRoostersGroupedByMonth();
+	
+	Map<String, Integer> last12BirthsOfHenGroupedByMonth();
 }

@@ -52,10 +52,14 @@ public class User implements Serializable {
 	private String aboutMe;
 	
 	@Relationship(type = "OWNER", direction = Relationship.INCOMING)
-	private Set<Bird> birds;
+	private Set<Hen> hens;
+	
+	@Relationship(type = "OWNER", direction = Relationship.INCOMING)
+	private Set<Rooster> roosters;
 	
 	public User() {
-		this.birds = new HashSet<>();
+		this.hens = new HashSet<>();
+		this.roosters = new HashSet<>();
 	}
 
 	public Long getId() {
@@ -146,12 +150,20 @@ public class User implements Serializable {
 		this.aboutMe = aboutMe;
 	}
 
-	protected Set<Bird> getBirds() {
-		return birds;
+	protected Set<Hen> getHens() {
+		return hens;
 	}
 
-	protected void setBirds(Set<Bird> birds) {
-		this.birds = birds;
+	protected void setHens(Set<Hen> hens) {
+		this.hens = hens;
+	}
+	
+	public Set<Rooster> getRoosters(){
+		return this.roosters;
+	}
+	
+	public void setRoosters(Set<Rooster> roosters) {
+		this.roosters = roosters;
 	}
 	
 }
