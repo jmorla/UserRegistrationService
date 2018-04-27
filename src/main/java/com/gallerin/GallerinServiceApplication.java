@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
-@EntityScan("org.jmorla.domain")
+@EntityScan("com.gallerin.domain")
 public class GallerinServiceApplication {
 
 	public static void main(String[] args) {

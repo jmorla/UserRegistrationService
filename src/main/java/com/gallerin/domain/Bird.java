@@ -2,14 +2,15 @@ package com.gallerin.domain;
 
 import java.util.Date;
 
-import org.neo4j.ogm.annotation.Id;
+import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
+@SuppressWarnings("deprecation")
 @NodeEntity
 public abstract class Bird {
 	
-	@Id
+	@GraphId
 	private Long 	id;
 	private String	birdId;
 	private Date 	birth;
@@ -29,100 +30,100 @@ public abstract class Bird {
 	@Relationship(type = "OWNER", direction = Relationship.OUTGOING)
 	private User 	user;
 	
-	protected Long getId() {
+	public Long getId() {
 		return id;
 	}
-	protected void setId(Long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
-	protected String getBirdId() {
+	public String getBirdId() {
 		return birdId;
 	}
-	protected void setBirdId(String birdId) {
+	public void setBirdId(String birdId) {
 		this.birdId = birdId;
 	}
-	protected Date getBirth() {
+	public Date getBirth() {
 		return birth;
 	}
-	protected void setBirth(Date birth) {
+	public void setBirth(Date birth) {
 		this.birth = birth;
 	}
-	protected String getAlias() {
+	public String getAlias() {
 		return alias;
 	}
-	protected void setAlias(String alias) {
+	public void setAlias(String alias) {
 		this.alias = alias;
 	}
-	protected Integer getPlate() {
+	public Integer getPlate() {
 		return plate;
 	}
-	protected void setPlate(Integer plate) {
+	public void setPlate(Integer plate) {
 		this.plate = plate;
 	}
-	protected String getScrath() {
+	public String getScrath() {
 		return scrath;
 	}
-	protected void setScrath(String scrath) {
+	public void setScrath(String scrath) {
 		this.scrath = scrath;
 	}
-	protected Date getDied() {
+	public Date getDied() {
 		return died;
 	}
-	protected void setDied(Date died) {
+	public void setDied(Date died) {
 		this.died = died;
 	}
-	protected String getStatus() {
+	public String getStatus() {
 		return status;
 	}
-	protected void setStatus(String status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
-	protected String getEnrace() {
+	public String getEnrace() {
 		return enrace;
 	}
-	protected void setEnrace(String enrace) {
+	public void setEnrace(String enrace) {
 		this.enrace = enrace;
 	}
-	protected String getComment() {
+	public String getComment() {
 		return comment;
 	}
-	protected void setComment(String comment) {
+	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	protected String getColor() {
+	public String getColor() {
 		return color;
 	}
-	protected void setColor(String color) {
+	public void setColor(String color) {
 		this.color = color;
 	}
-	protected String getCrest() {
+	public String getCrest() {
 		return crest;
 	}
-	protected void setCrest(String crest) {
+	public void setCrest(String crest) {
 		this.crest = crest;
 	}
-	protected String getPlateType() {
+	public String getPlateType() {
 		return plateType;
 	}
-	protected void setPlateType(String plateType) {
+	public void setPlateType(String plateType) {
 		this.plateType = plateType;
 	}
-	protected String getFatherId() {
+	public String getFatherId() {
 		return fatherId;
 	}
-	protected void setFatherId(String fatherId) {
+	public void setFatherId(String fatherId) {
 		this.fatherId = fatherId;
 	}
-	protected String getMotherId() {
+	public String getMotherId() {
 		return motherId;
 	}
-	protected void setMotherId(String motherId) {
+	public void setMotherId(String motherId) {
 		this.motherId = motherId;
 	}
-	protected User getUser() {
+	public User getUser() {
 		return user;
 	}
-	protected void setUser(User user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 }

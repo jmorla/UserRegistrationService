@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import com.gallerin.common.exception.DuplicateResourceException;
 import com.gallerin.common.exception.ResourceNotFoundException;
 import com.gallerin.common.pojo.ErrorDescriptor;
 import com.gallerin.common.pojo.FieldValidationError;
@@ -47,6 +48,8 @@ public class AppExceptionHandler {
 		return new ResponseEntity<ErrorDescriptor>(descriptor,HttpStatus.BAD_REQUEST);
 	}
 	
+	@ExceptionHandler(ResourceNotFoundException.class)
+	@ResponseStatus(HttpStatus.NOT_FOUND)
 	public ResponseEntity<ErrorDescriptor> handleResourceNotFoundException(ResourceNotFoundException exception,
 			HttpServletRequest request){
 		
@@ -57,7 +60,21 @@ public class AppExceptionHandler {
 		descriptor.setPath(request.getRequestURI());
 		descriptor.setMessage(constructMessage(exception.getClassname(), exception.getParams()));
 		
-		return null;
+		return new ResponseEntity<ErrorDescriptor>(descriptor, HttpStatus.NOT_FOUND);
+	}
+	
+	
+	public ResponseEntity<ErrorDescriptor> handleDuplicateResourceException(DuplicateResourceException exception,
+			HttpServletRequest request){
+		
+		ErrorDescriptor descriptor = new ErrorDescriptor();
+		descriptor.setTimestamp(new Date());
+		descriptor.setStatusCode(HttpStatus.CONFLICT.value());
+		descriptor.setExceptionName(exception.getClass().getName());
+		descriptor.setPath(request.getRequestURI());
+		descriptor.setMessage(exception.getMessage());
+		
+		return new ResponseEntity<ErrorDescriptor>(descriptor, HttpStatus.CONFLICT);
 	}
 	
 	private String constructMessage(String entity, String searchParams) {

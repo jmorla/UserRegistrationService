@@ -24,9 +24,9 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User saveUser(User u) {
 		
-		Optional<User> user = userRepository.findByUsername(u.getFirstname());
+		Optional<User> user = userRepository.findByUsername(u.getUsername());
 		if(user.isPresent()) {
-			throw new DuplicateResourceException("this resource already exist");
+			throw new DuplicateResourceException("this resource already exist, username="+u.getUsername());
 		}
 		return userRepository.save(u);
 	}
@@ -36,11 +36,14 @@ public class UserServiceImpl implements UserService {
 		Optional<User> currentUser = userRepository.findById(id);
 		
 		currentUser.ifPresent(e->{
-			e.setUsername(u.getUsername());
 			e.setEmail(u.getEmail());
 			e.setAddress(u.getAddress());
 			e.setFirstname(u.getFirstname());
 			e.setLastname(u.getLastname());
+			e.setAboutMe(u.getAboutMe());
+			e.setCity(u.getCountry());
+			e.setCountry(u.getCountry());
+			e.setPostalCode(u.getPostalCode());
 			
 			userRepository.save(e);
 		});	
@@ -75,11 +78,11 @@ public class UserServiceImpl implements UserService {
 		
 		Page<User> page = userRepository.findAll(PageRequest.of(p, s));
 		map.put("data", page.getContent());
-		map.put("total_pages", page.getTotalPages());
-		map.put("total_elements", page.getTotalElements());
+		map.put("totalPages", page.getTotalPages());
+		map.put("totalElements", page.getTotalElements());
 		
 		if(page.getTotalPages() > (p+1)) {
-			map.put("next_page", (p+1));
+			map.put("nextPage", (p+1));
 		}
 		
 		return map;

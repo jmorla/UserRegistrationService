@@ -7,6 +7,8 @@ import java.util.Set;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
+import org.neo4j.ogm.annotation.GraphId;
+import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
@@ -19,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
  */
 @NodeEntity
 public class User implements Serializable {
-
-	private static final long serialVersionUID = 1L;
-
+	
+	@GraphId
 	private Long id;
 
 	@NotEmpty

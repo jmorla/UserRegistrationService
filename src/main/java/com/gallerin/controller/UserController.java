@@ -29,12 +29,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 @RestController
 @RequestMapping("/users")
-public class UserRegistrationController {
+public class UserController {
 
 	private UserService userService;
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
-	public UserRegistrationController(UserService userService, BCryptPasswordEncoder bCryptPasswordEncoder) {
+	public UserController(UserService userService, BCryptPasswordEncoder bCryptPasswordEncoder) {
 		this.userService = userService;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
@@ -44,7 +44,7 @@ public class UserRegistrationController {
 			@RequestParam(value = "size") int size) {
 
 		Map<String, Object> response = userService.findAll(page, size);
-		if(((List)response.get("data")).isEmpty()) {
+		if(((List<?>)response.get("data")).isEmpty()) {
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NO_CONTENT);
 		}
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
