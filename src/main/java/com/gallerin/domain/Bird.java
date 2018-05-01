@@ -24,11 +24,15 @@ public abstract class Bird {
 	private String 	color;
 	private String 	crest;
 	private String  plateType;
-	private String 	fatherId;
-	private String 	motherId;
 	
 	@Relationship(type = "OWNER", direction = Relationship.OUTGOING)
 	private User 	user;
+	
+	@Relationship(type = "FATHER", direction = Relationship.OUTGOING)
+	private Rooster father;
+	
+	@Relationship(type = "MATHER", direction = Relationship.OUTGOING)
+	private Hen 	mother;
 	
 	public Long getId() {
 		return id;
@@ -108,22 +112,22 @@ public abstract class Bird {
 	public void setPlateType(String plateType) {
 		this.plateType = plateType;
 	}
-	public String getFatherId() {
-		return fatherId;
-	}
-	public void setFatherId(String fatherId) {
-		this.fatherId = fatherId;
-	}
-	public String getMotherId() {
-		return motherId;
-	}
-	public void setMotherId(String motherId) {
-		this.motherId = motherId;
-	}
 	public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}
+	public Rooster getFather() {
+		return father;
+	}
+	public void setFather(Rooster father) {
+		this.father = father;
+	}
+	public Hen getMother() {
+		return mother;
+	}
+	public void setMother(Hen mother) {
+		this.mother = mother;
 	}
 }

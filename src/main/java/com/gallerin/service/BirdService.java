@@ -14,5 +14,5 @@ public interface BirdService {
 	
 	Hen addHen(String username, Hen hen);
 	
-	Bird deleteBird(long id);
+	Bird deleteBird(String id);
 }

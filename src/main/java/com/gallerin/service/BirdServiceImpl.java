@@ -1,8 +1,12 @@
 package com.gallerin.service;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.gallerin.domain.Bird;
@@ -17,18 +21,28 @@ import com.gallerin.util.StringGenerator;
 public class BirdServiceImpl implements BirdService {
 
 	
-	private BirdRepository birdPrepository;
+	private BirdRepository birdRepository;
 	private UserRepository userRepository;
 	
 	public BirdServiceImpl(BirdRepository birdRepository, UserRepository userRepository) {
-		this.birdPrepository = birdRepository;
+		this.birdRepository = birdRepository;
 		this.userRepository = userRepository;
 	}
 
 	@Override
 	public Map<String, Object> findAllBirdsByUser(String username, int page, int size) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Bird> data = birdRepository.findAllBirdByUserOwner(username, page, size);
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("data", data);
+//		map.put("totalPages", data.getTotalPages());
+//		map.put("totalElements", data.getTotalElements());
+		
+//		if(pag.getTotalPages() > (page+1)) {
+//			map.put("nextPage", (page+1));
+//		}
+		
+		return map;
 	}
 
 	@Override
@@ -38,7 +52,7 @@ public class BirdServiceImpl implements BirdService {
 		if(value.isPresent()) {
 			rooster.setBirdId(StringGenerator.generateBirdId());
 			rooster.setUser(value.get());
-			birdPrepository.save(rooster);
+			birdRepository.save(rooster);
 		}
 		
 		return rooster;
@@ -50,16 +64,17 @@ public class BirdServiceImpl implements BirdService {
 		Optional<User> value = userRepository.findByUsername(username);
 		if(value.isPresent()) {
 			hen.setUser(value.get());
-			birdPrepository.save(hen);
+			birdRepository.save(hen);
 		}
 		
 		return hen;
 	}
 
 	@Override
-	public Bird deleteBird(long id) {
+	public Bird deleteBird(String id) {
 		
 		return null;
+//		return birdRepository.deleteBird(id);
 	}
 
 }
