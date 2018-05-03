@@ -1,16 +1,9 @@
-package com.gallerin.domain;
+package com.gallerin.common.pojo;
 
 import java.util.Date;
 
-import org.neo4j.ogm.annotation.GraphId;
-import org.neo4j.ogm.annotation.NodeEntity;
-import org.neo4j.ogm.annotation.Relationship;
+public class BirdDetails {
 
-@SuppressWarnings("deprecation")
-@NodeEntity
-public class Bird {
-	
-	@GraphId
 	private Long 	id;
 	private String	birdId;
 	private Date 	birth;
@@ -24,16 +17,37 @@ public class Bird {
 	private String 	color;
 	private String 	crest;
 	private String  plateType;
+	private String  fatherBirdId;
+	private String  motherBirdId;
+	private String 	sex;
 	
-	@Relationship(type = "OWNER", direction = Relationship.OUTGOING)
-	private User 	user;
+	public BirdDetails() {
+		super();
+	}
 	
-	@Relationship(type = "FATHER", direction = Relationship.OUTGOING)
-	private Rooster father;
-	
-	@Relationship(type = "MOTHER", direction = Relationship.OUTGOING)
-	private Hen 	mother;
-	
+	public BirdDetails(Long id, String birdId, Date birth, String alias, Integer plate, String scrath, Date died,
+			String status, String enrace, String comment, String color, String crest, String plateType,
+			String fatherBirdId, String motherBirdId, String sex) {
+		super();
+		this.id = id;
+		this.birdId = birdId;
+		this.birth = birth;
+		this.alias = alias;
+		this.plate = plate;
+		this.scrath = scrath;
+		this.died = died;
+		this.status = status;
+		this.enrace = enrace;
+		this.comment = comment;
+		this.color = color;
+		this.crest = crest;
+		this.plateType = plateType;
+		this.fatherBirdId = fatherBirdId;
+		this.motherBirdId = motherBirdId;
+		this.sex = sex;
+	}
+
+
 	public Long getId() {
 		return id;
 	}
@@ -112,22 +126,22 @@ public class Bird {
 	public void setPlateType(String plateType) {
 		this.plateType = plateType;
 	}
-	public User getUser() {
-		return user;
+	public String getFatherBirdId() {
+		return fatherBirdId;
 	}
-	public void setUser(User user) {
-		this.user = user;
+	public void setFatherbirdId(String fatherbirdId) {
+		fatherBirdId = fatherbirdId;
 	}
-	public Rooster getFather() {
-		return father;
+	public String getMotherBirdId() {
+		return motherBirdId;
 	}
-	public void setFather(Rooster father) {
-		this.father = father;
+	public void setMotherBirdId(String motherBirdId) {
+		this.motherBirdId = motherBirdId;
 	}
-	public Hen getMother() {
-		return mother;
+	public String getSex() {
+		return sex;
 	}
-	public void setMother(Hen mother) {
-		this.mother = mother;
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 }

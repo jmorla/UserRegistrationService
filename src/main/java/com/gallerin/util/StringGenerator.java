@@ -6,6 +6,6 @@ public class StringGenerator {
 
 	
 	public static String generateBirdId() {
-		return UUID.randomUUID().toString().substring(0, 6);
+		return UUID.randomUUID().toString().substring(0, 8);
 	}
 }
